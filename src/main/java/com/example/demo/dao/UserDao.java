@@ -12,5 +12,5 @@ public interface UserDao {
 
     UserBean getOneUser(@Param("name")String name);
 
-    UserBean addUser(UserBean user);
+    int addUser(UserBean user);
 }

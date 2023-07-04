@@ -14,7 +14,7 @@
         update user set age = #{age} where name = #{name}
     </update>
     <update id="addUser">
-        insert into user(name,gender,age) values(#{name},#{gender},#age)
+        insert into user(name,gender,age) values(#{name},#{gender},#{age})
     </update>
 
 </mapper>

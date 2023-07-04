@@ -1,17 +1,18 @@
 package com.example.demo.enums;
 
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-@Converter
-public class GenderConverter  implements AttributeConverter<Gender, Character> {
+@Converter(autoApply = true)
+public class GenderConverter implements AttributeConverter<Gender, String> {
     @Override
-    public Character convertToDatabaseColumn(Gender attr) {
+    public String convertToDatabaseColumn(Gender attr) {
         return attr != null ? attr.getValue() : null;
     }
 
     @Override
-    public Gender convertToEntityAttribute(Character dbData) {
+    public Gender convertToEntityAttribute(String dbData) {
         if (dbData == null) return null;
 
         Gender[] enums = Gender.class.getEnumConstants();

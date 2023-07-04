@@ -1,16 +1,19 @@
 package com.example.demo.enums;
 
-public enum Gender implements IBaseEnum{
-    MALE('0'),
-    FEMALE('1');
+import com.fasterxml.jackson.annotation.JsonValue;
 
-    private Character value;
-    private Gender(Character value){
+public enum Gender implements IBaseEnum{
+    MALE("0"),
+    FEMALE("1");
+
+    @JsonValue
+    private String value;
+    private Gender(String value){
         this.value = value;
     }
 
     @Override
-    public Character getValue() {
+    public String getValue() {
         return this.value;
     }
 }

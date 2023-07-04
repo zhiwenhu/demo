@@ -7,4 +7,7 @@
     <typeAliases>
         <typeAlias type="com.example.demo.entity.UserBean" alias="usr"/>
     </typeAliases>
+    <typeHandlers>
+        <typeHandler handler="com.example.demo.typeHandler.CodeEnumTypeHandler" javaType="com.example.demo.enums.Gender"/>
+    </typeHandlers>
 </configuration>

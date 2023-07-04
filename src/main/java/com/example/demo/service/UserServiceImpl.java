@@ -4,10 +4,8 @@ import com.example.demo.dao.UserDao;
 import com.example.demo.entity.UserBean;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Repository
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired

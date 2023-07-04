@@ -18,14 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyControl {
-
-    @Autowired
-    UserBean myUser;
     @Autowired
     UserServiceImpl userServiceImpl;
 
     @GetMapping("/user")
     public String getUser() {
+        UserBean myUser = new UserBean();
         myUser.setName("Mary");
         myUser.setGender(Gender.FEMALE);
         myUser.setAge(18);
@@ -34,9 +32,9 @@ public class MyControl {
     }
 
     @GetMapping("/allUser")
-    public String getAllUser() {
+    public List getAllUser() {
         List users = userServiceImpl.getAllUser();
-        return JSONObject.toJSONString (users);
+        return users;
     }
 
     @GetMapping("/updateUser1")
@@ -75,7 +73,7 @@ public class MyControl {
         userServiceImpl.updateUser(age,name);
         return "update success";
     }
-    @PostMapping("/addUser")
+    @PostMapping("/addUser/mybatis")
     public UserBean addUser(@Validated @RequestBody UserBean user) {
         userServiceImpl.addUser(user);
         return user;
