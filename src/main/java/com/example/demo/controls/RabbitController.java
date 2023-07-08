@@ -20,7 +20,6 @@ public class RabbitController {
      */
     @GetMapping("/sendDirect")
     public String sendDirect(@RequestParam("message") String message) {
-
             rabbitTemplate.convertAndSend(RabbitConsts.DIRECT_MODE_QUEUE_ONE, new MyMessage(message));
             return "send Direct OK";
     }
@@ -61,7 +60,7 @@ public class RabbitController {
     @GetMapping("/sendTopic3")
     public String sendTopic3(@RequestParam("message") String message) {
         rabbitTemplate.convertAndSend(RabbitConsts.TOPIC_MODE_QUEUE, "3.queue",new MyMessage(message));
-        return "send Topic2 OK";
+        return "send Topic3 OK";
     }
 
     /**

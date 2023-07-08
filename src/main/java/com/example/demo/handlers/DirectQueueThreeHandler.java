@@ -9,7 +9,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@RabbitListener(queues = RabbitConsts.QUEUE_TWO)
+@RabbitListener(queues = RabbitConsts.QUEUE_THREE)
 @Component
 public class DirectQueueThreeHandler {
     /**
