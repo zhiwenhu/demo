@@ -37,6 +37,11 @@ public class MyControl {
         return users;
     }
 
+    @GetMapping("/getUser")
+    public UserBean getUser(@RequestParam("name") String name) {
+        return userServiceImpl.getOneUser(name);
+    }
+
     @GetMapping("/updateUser1")
     public String updateUser(@RequestParam("name") String name, @RequestParam("age") String age) {
         int ageTo = 0;

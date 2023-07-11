@@ -9,12 +9,19 @@ import javax.validation.constraints.NotBlank;
 
 import com.example.demo.enums.GenderConverter;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name="user")
 @Data
-public class UserBean {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserBean implements Serializable {
+    private static final long serialVersionUID = 7049909329275043187L;
     @Id
     @NotBlank(message = "姓名必须")
     @Column(name = "name")
