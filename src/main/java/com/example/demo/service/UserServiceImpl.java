@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    @Cacheable(value = "myredis", key = "#name")
+    @Cacheable(value = "myredis", key = "#name" ,unless="#result == null")
     public UserBean getOneUser(String name) {
         log.info("get user " + name);
         return userDao.getOneUser(name);

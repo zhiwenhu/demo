@@ -1,11 +1,14 @@
 package com.example.demo.controls;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.annotation.RateLimiter;
 import com.example.demo.entity.UserBean;
 import com.example.demo.enums.Gender;
 import com.example.demo.service.UserServiceImpl;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 public class MyControl {
     @Autowired
@@ -31,15 +35,23 @@ public class MyControl {
         return myUser.toString();
     }
 
+    @RateLimiter(value = 2, key = "自定义key")
     @GetMapping("/allUser")
     public List getAllUser() {
+        log.info("【getAllUser】被执行了。。。。。");
         List users = userServiceImpl.getAllUser();
         return users;
     }
 
+    @RateLimiter(value = 5)
     @GetMapping("/getUser")
     public UserBean getUser(@RequestParam("name") String name) {
-        return userServiceImpl.getOneUser(name);
+        log.info("【getUser】被执行了。。。。。");
+        UserBean usr = userServiceImpl.getOneUser(name);
+         if (usr == null) {
+             throw new RuntimeException("no user " + name);
+         }
+         return usr;
     }
 
     @GetMapping("/updateUser1")
