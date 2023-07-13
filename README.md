@@ -4,7 +4,7 @@
 集成中间件
 - Redis缓存
 - redis流量制限，
-- rabbitmq消息队列（direct，fanout，topic），
+- rabbitmq消息队列（direct，fanout，topic）
 - mybatis数据库操作
 
 设计模式
