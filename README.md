@@ -1,7 +1,7 @@
 # demo
 自我学习和深入springboot框架等相关技术
 
-集成
+集成中间件
 - Redis缓存
 - redis流量制限，
 - rabbitmq消息队列（direct，fanout，topic），
