@@ -1,5 +1,5 @@
-# demo
-自我学习和深入springboot框架等相关技术
+# Spring Boot 学习
+基于spring boot2.X的学习和深入框架相关技术
 
 集成中间件
 - Redis缓存
