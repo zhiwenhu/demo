@@ -3,9 +3,10 @@
 
 集成中间件
 - Redis缓存
-- redis流量制限，
+- redis流量制限
 - rabbitmq消息队列（direct，fanout，topic）
 - mybatis数据库操作
+- ES查询，插入，更新，删除
 
 设计模式
 - 工程模式
