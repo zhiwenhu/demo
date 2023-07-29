@@ -1,6 +1,5 @@
 package com.example.demo.controls;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.demo.annotation.RateLimiter;
 import com.example.demo.entity.UserBean;
 import com.example.demo.enums.Gender;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class MyControl {
+public class MyController {
     @Autowired
     UserServiceImpl userServiceImpl;
 
